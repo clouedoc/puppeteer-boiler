@@ -1,6 +1,6 @@
 # puppeteer-extra-boilerplate
 
-TODO: include cool boilerplate image
+![cool boilerplate image](assets/images/boilerplate-readme.jpeg)
 
 ## Introduction
 
