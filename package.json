@@ -1,10 +1,13 @@
 {
-  "name": "Soundcloud Bot",
+  "name": "deafbot",
   "scripts": {
     "test": "yarn jest --watch"
   },
-  "version": "1.0.0",
-  "description": "A soundcloud bot",
+  "version": "0.0.1",
+  "description": "A SoundCloud bot",
+  "repository": {
+    "url": "https://git.gravi.best/clouedoc/deafbot"
+  },
   "private": true,
   "author": "clouedoc",
   "license": "All rights reserved.",

@@ -1,1 +1,3 @@
-# Soundcloud bot
+# Deafbot
+
+A SoundCloud bot.
