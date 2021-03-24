@@ -1,5 +1,57 @@
-node_modules
-.DS_Store
-.env
+# Environment
+# .env
+
+# JS
 yarn-error.log
+node_modules
+
+# Vendors
+node_modules/
+
+# Database
+*.sqlite
+prisma/*.db
+prisma/migrations/**/*
+
+# Build
+build/**/*
+*.tgz
+.grunt
+
+# Transient Data
+storage
+
+# TypeScript
+src/**/*.js
+run.js
+typings/
+*.tsbuildinfo
+
+# Temp Files
+cache/
+*.zip
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Editors
+.idea/
+.vscode/
+.eslintcache
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+*.dump
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# gr¿vi specific
 gcp-creds.json
