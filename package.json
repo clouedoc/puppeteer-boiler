@@ -1,12 +1,13 @@
 {
-  "name": "puppeteer-extra-boilerplate",
+  "name": "Soundcloud Bot",
   "scripts": {
     "test": "yarn jest --watch"
   },
   "version": "1.0.0",
-  "description": "A batteries included boilerplate for puppeteer-extra.",
+  "description": "A soundcloud bot",
+  "private": true,
   "author": "clouedoc",
-  "license": "MIT",
+  "license": "All rights reserved.",
   "devDependencies": {
     "@types/node": "^14.14.35",
     "jest": "^26.6.3",
