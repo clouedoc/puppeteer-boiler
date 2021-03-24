@@ -36,6 +36,16 @@ This package is used to extend the base functionnalities of puppeteer.
 
 It is required to use puppeteer-extra plugins.
 
+### GCP Logging
+
+**Setup:**
+
+1. Create a GCP project <https://console.cloud.google.com>
+2. [Enable the Cloud Logging API](https://console.cloud.google.com/marketplace/product/google/logging.googleapis.com)
+3. [Create a service account](https://console.cloud.google.com/apis/api/logging.googleapis.com/credentials?folder=true&organizationId=true)
+4. Download the service account's credentials in JSON format
+5. Add the key to the root of the project and rename it to "gcp-creds.json"
+
 ## Contributing
 
 **Rules:**
