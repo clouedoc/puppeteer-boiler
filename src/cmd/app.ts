@@ -28,3 +28,8 @@ process.on("uncaughtException", async (err) => {
   await delay(5000); // avoid restart-burns
   process.exit(1);
 });
+
+(async () => {
+  log.info("coucou");
+  await delay(20000);
+})();

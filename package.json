@@ -1,6 +1,7 @@
 {
   "name": "deafbot",
   "scripts": {
+    "app": "yarn ts-node --transpile-only src/cmd/app.ts",
     "test": "yarn jest --watch"
   },
   "version": "0.0.1",
