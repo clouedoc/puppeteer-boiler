@@ -60,7 +60,7 @@ export function newLogger({
   });
 
   if (sendGCP) {
-    log.transports.push(new GoogleLoggingWinston());
+    log.add(new GoogleLoggingWinston());
   }
 
   return log;
