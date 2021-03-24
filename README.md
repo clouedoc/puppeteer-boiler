@@ -1,4 +1,4 @@
-# puppeteer-extra-boilerplate
+# puppeteer-boiler
 
 ![cool boilerplate image](assets/images/boilerplate-readme.jpeg)
 
