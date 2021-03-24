@@ -8,6 +8,8 @@ With NodeJS and TypeScript, you can structure your project how you want. However
 
 The puppeteer-extra-boilerplate is a good learning source for scraping beginners and allows advanced users to have a batteries-included template ready.
 
+This is a WIP boilerplate. You might want to check prescience's one: <https://github.com/prescience-data/foundation>.
+
 ### If you are a beginner
 
 Then welcome to scraping ! Make sure to [join the Scraping Enthusiasts discord server](https://discord.gg/QDbpFyenhA)
