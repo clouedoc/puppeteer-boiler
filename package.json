@@ -1,7 +1,15 @@
 {
   "name": "puppeteer-extra-boilerplate",
   "scripts": {
-    "test": "yarn jest --watch"
+    "app": "yarn ts-node --transpile-only ./src/app/app.ts",
+    "test": "yarn jest --watch",
+    "db:init": "yarn db:migrate:refresh",
+    "db:wipe": "rm -f \"./prisma/database.db\" && sqlite3 \"./prisma/database.db\" \"VACUUM;\" && yarn db:clean",
+    "db:clean": "rm -rf \"./prisma/migrations\" && rm -rf \"./node_modules/.prisma\"  && rm -rf \"./node_modules/.cache\"",
+    "db:migrate": "yarn prisma format && yarn prisma migrate save --name foundation --experimental && npx prisma migrate up --experimental && npx prisma generate",
+    "db:migrate:refresh": "yarn db:wipe && yarn db:migrate",
+    "db:generate": "npx prisma generate",
+    "update": "npx yarn-check-updates -u --packageFile package.json",
   },
   "version": "1.0.0",
   "description": "A batteries included boilerplate for puppeteer-extra.",
