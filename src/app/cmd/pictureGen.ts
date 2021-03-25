@@ -1,5 +1,5 @@
 import terminalImage from "terminal-image";
-import { generatePicture } from "../modules/pictureGenerator";
+import { generatePicture } from "../modules/picture-generator";
 
 (async () => {
   const buf = await generatePicture("megumin wallpaper", 1240, 260, 30);
