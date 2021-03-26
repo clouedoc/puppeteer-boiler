@@ -22,7 +22,6 @@ node_modules/
 
 # Database
 *.sqlite
-prisma/migrations/**/*
 *.db
 *.db-journal
 
