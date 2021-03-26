@@ -59,6 +59,11 @@ It is required to use puppeteer-extra plugins.
 1. You need to respect the code format. If you are using VSCode, install the Prettier extension, which should automatically pick up the .prettierrc file.
 2. All contributions are accepted. Documentation, code, etc...
 
+### What's next
+
+- [ ] Add stealth utils (jitter, stealth mouse movements)
+- [ ] Add stealth measures where there are `// STEALTH` comments. These measures should be activated thanks to an env varialbe. It would add delay, so not great for development.
+
 ## License
 
 This package is licensed under the MIT license.
