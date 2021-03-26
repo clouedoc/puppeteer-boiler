@@ -1,4 +1,5 @@
 import { LoggingWinston as GoogleLoggingWinston } from "@google-cloud/logging-winston";
+import delay from "delay";
 import os from "os";
 import winston from "winston";
 import env from "./env";
@@ -37,6 +38,18 @@ let transports: winston.transport[] = [
 // send logs to GCP if we have a service account available
 if (env.GOOGLE_APPLICATION_CREDENTIALS) {
   transports.push(new GoogleLoggingWinston());
+}
+
+if (env.PUSHBULLET_APIKEY) {
+  transports.push(
+    // @ts-expect-error
+    new winston.transports.Pushbullet({
+      apikey: env.PUSHBULLET_APIKEY,
+      level: "warn",
+      title: "Puppeteer Notifcation",
+      devices: "", // '' means all devices
+    })
+  );
 }
 
 export const log = winston.createLogger({
