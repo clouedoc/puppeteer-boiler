@@ -40,6 +40,7 @@ export function newBrowser() {
       "--disable-sync",
       "--ignore-certificate-errors",
     ],
+    headless: false,
   });
 
   return browser;

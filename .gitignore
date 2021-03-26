@@ -1,11 +1,14 @@
 # Ignore private code
-./src/app
+src/app/**
 ./src/pkg/private
 
 # Lock the boiler db schema
-./prisma/*
+prisma/**
 prisma/dev.db-journal
 dev.db
+
+# Remove yarn.lock because this leaks informations from private projects
+yarn.lock
 
 # Environment
 # .env
@@ -19,8 +22,9 @@ node_modules/
 
 # Database
 *.sqlite
-prisma/*.db
 prisma/migrations/**/*
+*.db
+*.db-journal
 
 # Build
 build/**/*
