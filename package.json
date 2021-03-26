@@ -4,12 +4,9 @@
     "app": "yarn ts-node --transpile-only ./src/app/app.ts",
     "pictureGen": "yarn ts-node --transpile-only ./src/app/cmd/pictureGen.ts",
     "test": "yarn jest --watch",
-    "db:init": "yarn db:migrate:refresh",
-    "db:wipe": "rm -f \"./prisma/database.db\" && sqlite3 \"./prisma/database.db\" \"VACUUM;\" && yarn db:clean",
-    "db:clean": "rm -rf \"./prisma/migrations\" && rm -rf \"./node_modules/.prisma\"  && rm -rf \"./node_modules/.cache\"",
-    "db:migrate": "yarn prisma format && yarn prisma migrate save --name foundation --experimental && npx prisma migrate up --experimental && npx prisma generate",
-    "db:migrate:refresh": "yarn db:wipe && yarn db:migrate",
-    "db:generate": "npx prisma generate",
+    "db:init": "yarn prisma init",
+    "db:migrate": "yarn prisma migrate dev",
+    "db:refresh-client": "yarn prisma generate",
     "update": "npx yarn-check-updates -u --packageFile package.json"
   },
   "version": "0.0.1",
@@ -33,6 +30,7 @@
   },
   "dependencies": {
     "@google-cloud/logging-winston": "^4.0.4",
+    "@prisma/client": "^2.19.0",
     "delay": "^5.0.0",
     "dotenv": "^8.2.0",
     "duckduckgo-images-api": "^1.0.5",

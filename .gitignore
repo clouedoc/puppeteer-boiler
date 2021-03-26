@@ -1,5 +1,5 @@
 # Environment
-# .env
+.env
 
 # JS
 yarn-error.log
@@ -10,8 +10,9 @@ node_modules/
 
 # Database
 *.sqlite
-prisma/*.db
 prisma/migrations/**/*
+*.db
+*.db-journal
 
 # Build
 build/**/*
