@@ -1,5 +1,6 @@
 import { LoggingWinston as GoogleLoggingWinston } from "@google-cloud/logging-winston";
 import chalk from "chalk";
+import delay from "delay";
 import os from "os";
 import util from "util";
 import winston from "winston";
@@ -58,6 +59,18 @@ if (env.GOOGLE_APPLICATION_CREDENTIALS) {
   transports.push(new GoogleLoggingWinston());
 }
 
+if (env.PUSHBULLET_APIKEY) {
+  transports.push(
+    // @ts-expect-error
+    new winston.transports.Pushbullet({
+      apikey: env.PUSHBULLET_APIKEY,
+      level: "warn",
+      title: "Puppeteer Notifcation",
+      devices: "", // '' means all devices
+    })
+  );
+}
+
 export const log = winston.createLogger({
   level: env.LOG_LEVEL || "silly",
   transports,
@@ -65,4 +78,18 @@ export const log = winston.createLogger({
     hostname: os.hostname(),
     loggerCreationDate: new Date(),
   },
+});
+
+// use this to report fatal errors to GCP
+process.on("uncaughtException", async (err) => {
+  /**
+   * errors in this format will be picked up by GCP's error reporting tool
+   */
+  log.error("fatal error: " + err.message, {
+    message: err.message,
+    stack: err.stack,
+  });
+
+  await delay(5000); // avoid restart-burns
+  process.exit(1);
 });
