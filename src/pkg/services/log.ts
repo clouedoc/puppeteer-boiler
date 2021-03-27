@@ -1,5 +1,7 @@
 import { LoggingWinston as GoogleLoggingWinston } from "@google-cloud/logging-winston";
+import chalk from "chalk";
 import os from "os";
+import util from "util";
 import winston from "winston";
 import env from "./env";
 
@@ -8,13 +10,30 @@ import env from "./env";
  * properties.
  */
 function rest(info: any) {
-  return JSON.stringify(
-    Object.assign({}, info, {
-      level: undefined,
-      message: undefined,
-      splat: undefined,
-      label: undefined,
-    })
+  const data = Object.assign({}, info, {
+    level: undefined,
+    message: undefined,
+    splat: undefined,
+    label: undefined,
+  });
+
+  // delete all the bloating variables
+  // default
+  delete data.message;
+  delete data.level;
+  delete data.splat;
+  delete data.label;
+  // stack-related
+  delete data.hostname;
+  delete data.loggerCreationDate;
+
+  if (Object.keys(data).length === 0) {
+    return "";
+  }
+
+  return chalk.grey(
+    // using JSON.parse to remove all the `[Symbol(...)]` things
+    `\n${util.inspect(JSON.parse(JSON.stringify(data)), false, 10, true)}`
   );
 }
 
@@ -24,7 +43,7 @@ let transports: winston.transport[] = [
       winston.format.splat(),
       winston.format.colorize(),
       winston.format.printf(
-        (info) => `[${info.level}] ${info.message} ${rest(info)}`
+        (info) => `[${info.level}] ${info.message}${rest(info)}`
       )
     ),
   }),
