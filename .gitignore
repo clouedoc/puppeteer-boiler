@@ -1,21 +1,8 @@
-# Ignore private code
-src/app/**
-./src/pkg/private
-
-# Lock the boiler db schema
-prisma/**
-prisma/dev.db-journal
-dev.db
-
-# Remove yarn.lock because this leaks informations from private projects
-yarn.lock
-
 # Environment
-# .env
+# .env # note: you should gitignore your .env
 
 # JS
 yarn-error.log
-node_modules
 
 # Vendors
 node_modules/
@@ -25,18 +12,12 @@ node_modules/
 *.db
 *.db-journal
 
-# Build
-build/**/*
-*.tgz
-.grunt
-
 # Transient Data
 storage
 
 # TypeScript
 src/**/*.js
 run.js
-typings/
 *.tsbuildinfo
 
 # Temp Files
@@ -64,6 +45,3 @@ yarn-error.log*
 # OS metadata
 .DS_Store
 Thumbs.db
-
-# gr¿vi specific
-gcp-creds.json
