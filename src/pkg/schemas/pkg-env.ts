@@ -10,4 +10,4 @@ export const DefaultEnvSchema = z.object({
   LOG_LEVEL: z.string(),
 });
 
-export const GlobalEnvSchema = z.union([DefaultEnvSchema, AppEnvSchema]);
+export const GlobalEnvSchema = DefaultEnvSchema.merge(AppEnvSchema);
