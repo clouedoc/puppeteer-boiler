@@ -1,6 +1,6 @@
 import { Page } from "puppeteer";
 import { log } from "../services/log";
-import { doOnAppareance } from "./on-appearance";
+import { doOnAppareance } from "./appearance";
 
 /**
  * Solve an invisible recaptcha challenge.
@@ -8,18 +8,16 @@ import { doOnAppareance } from "./on-appearance";
  * @param timeout the timeout by which the captcha box should've appeared
  */
 export async function solveInvisibleRecaptcha(page: Page, timeout: number) {
-  log.debug("invisible recaptcha solver called");
+  log.silly("invisible recaptcha solver called");
 
   return doOnAppareance(
     page,
     '[title="recaptcha challenge"]',
     timeout,
     async (page) => {
-      log.debug("solving recaptcha challenge...");
-      const res = await page.solveRecaptchas();
-      log.debug("recaptcha solved", {
-        res,
-      });
+      log.debug("captcha appeared; solving it using provider...");
+      await page.solveRecaptchas();
+      log.debug("recaptcha solved");
     }
   );
 }
