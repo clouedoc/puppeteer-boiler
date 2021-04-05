@@ -1,8 +1,8 @@
-import dotenv from "dotenv"
+import dotenv from "dotenv";
+import { GlobalEnvSchema } from "../schemas/pkg-env";
 
 /** Initialize Environment Variables **/
-dotenv.config()
-const env = process.env
+dotenv.config();
 
 /** Default Export **/
-export default env
+export default GlobalEnvSchema.parse(process.env);
