@@ -31,6 +31,7 @@
     "puppeteer-extra": "^3.1.18",
     "puppeteer-extra-plugin-recaptcha": "^3.3.7",
     "puppeteer-extra-plugin-stealth": "^2.7.6",
+    "puppeteer-extra-plugin-timezone": "^1.0.3",
     "recaptcha": "^1.2.1",
     "winston": "^3.3.3"
   }

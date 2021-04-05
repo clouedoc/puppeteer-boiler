@@ -2,8 +2,11 @@ import os from "os";
 import puppeteer from "puppeteer-extra";
 import RecaptchaPlugin from "puppeteer-extra-plugin-recaptcha";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
+import TimezonePlugin from "puppeteer-extra-plugin-timezone";
 import env from "../services/env";
 import { log } from "../services/log";
+
+puppeteer.use(TimezonePlugin());
 
 /**
  * create a new stealth browser
