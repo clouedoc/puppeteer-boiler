@@ -1,3 +1,5 @@
+import { statSync } from "fs";
+
 /**
  * An expression that will throw the given error message.
  * Useful when you want to assert that a value is undefined.
@@ -14,6 +16,18 @@
  *
  * [stackoverflow source](https://stackoverflow.com/a/65666402/4564097)
  */
-function throwExpression(errorMessage: string): never {
+export function throwExpression(errorMessage: string): never {
   throw new Error(errorMessage);
+}
+
+/**
+ * Checks wether a given file exists or not.
+ */
+export function fileExists(path: string): boolean {
+  try {
+    statSync(path);
+    return true;
+  } catch (err) {
+    return false;
+  }
 }

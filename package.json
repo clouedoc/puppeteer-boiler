@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "@google-cloud/logging-winston": "^4.0.4",
+    "@prisma/client": "^2.20.1",
     "chalk": "^4.1.0",
     "delay": "^5.0.0",
     "dotenv": "^8.2.0",
