@@ -1,7 +1,6 @@
 {
   "name": "puppeteer-extra-boilerplate",
   "scripts": {
-    "app": "yarn ts-node --transpile-only ./src/app/app.ts",
     "dev": "yarn ts-node --transpile-only ./src/app/cmd/dev.ts",
     "test": "yarn jest --watch",
     "db:init": "yarn prisma init",
