@@ -1,18 +1,25 @@
 {
   "name": "puppeteer-extra-boilerplate",
   "scripts": {
-    "dev": "yarn ts-node --transpile-only ./src/app/cmd/dev.ts",
+    "dev": "yarn tsc && ./bin/run dev",
+    "cmd": "yarn tsc && ./bin/run ",
     "test": "yarn jest --watch",
     "db:init": "yarn prisma init",
     "db:migrate": "yarn prisma migrate dev",
     "db:refresh-client": "yarn prisma generate",
-    "update": "npx yarn-check-updates -u --packageFile package.json"
+    "upgrade": "yarn upgrade-interactive",
+    "postpack": "rm -f oclif.manifest.json",
+    "posttest": "eslint . --ext .ts --config .eslintrc",
+    "prepack": "rm -rf lib && tsc -b && oclif-dev manifest && oclif-dev readme",
+    "version": "oclif-dev readme && git add README.md"
   },
   "version": "1.0.0",
   "description": "A batteries included boilerplate for puppeteer-extra.",
   "author": "clouedoc",
   "license": "MIT",
   "devDependencies": {
+    "@oclif/dev-cli": "^1.26.0",
+    "@oclif/test": "^1.2.8",
     "@types/chalk": "^2.2.0",
     "@types/jest": "^26.0.22",
     "@types/node": "^14.14.35",
@@ -24,6 +31,9 @@
   },
   "dependencies": {
     "@google-cloud/logging-winston": "^4.0.4",
+    "@oclif/command": "^1.8.0",
+    "@oclif/config": "^1.17.0",
+    "@oclif/plugin-help": "^3.2.2",
     "@prisma/client": "^2.20.1",
     "chalk": "^4.1.0",
     "delay": "^5.0.0",
@@ -36,5 +46,16 @@
     "puppeteer-extra-plugin-timezone": "^1.0.3",
     "recaptcha": "^1.2.1",
     "winston": "^3.3.3"
-  }
+  },
+  "oclif": {
+    "commands": "./src/app/cmd",
+    "bin": "puppeteer-boiler",
+    "plugins": [
+      "@oclif/plugin-help"
+    ]
+  },
+  "files": [
+    "/bin",
+    "/lib"
+  ]
 }
