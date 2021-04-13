@@ -16,10 +16,8 @@ node_modules/
 storage
 
 # TypeScript
-src/**/*.js
 run.js
 *.tsbuildinfo
-lib/**/*
 lib/**/*
 
 # Temp Files
