@@ -27,6 +27,7 @@
     "chalk": "^4.1.0",
     "delay": "^5.0.0",
     "dotenv": "^8.2.0",
+    "p-event": "^4.2.0",
     "puppeteer": "^5",
     "puppeteer-extra": "^3.1.18",
     "puppeteer-extra-plugin-recaptcha": "^3.3.7",

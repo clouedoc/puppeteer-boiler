@@ -1,5 +1,3 @@
-import { statSync } from "fs";
-
 /**
  * An expression that will throw the given error message.
  * Useful when you want to assert that a value is undefined.
@@ -18,18 +16,6 @@ import { statSync } from "fs";
  */
 export function throwExpression(errorMessage: string): never {
   throw new Error(errorMessage);
-}
-
-/**
- * Checks wether a given file exists or not.
- */
-export function fileExists(path: string): boolean {
-  try {
-    statSync(path);
-    return true;
-  } catch (err) {
-    return false;
-  }
 }
 
 export function random(min: number, max: number) {
