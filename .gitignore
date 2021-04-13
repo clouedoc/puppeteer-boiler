@@ -19,6 +19,8 @@ storage
 src/**/*.js
 run.js
 *.tsbuildinfo
+lib/**/*
+lib/**/*
 
 # Temp Files
 cache/
