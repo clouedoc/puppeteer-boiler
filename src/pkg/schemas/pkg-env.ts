@@ -8,6 +8,7 @@ export const DefaultEnvSchema = z.object({
   PUSHBULLET_APIKEY: z.string().optional(),
   // TODO: restrict to possible log levels
   LOG_LEVEL: z.string(),
+  PROJECT_NAME: z.string(),
 });
 
 export const GlobalEnvSchema = DefaultEnvSchema.merge(AppEnvSchema);

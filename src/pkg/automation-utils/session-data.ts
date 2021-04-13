@@ -1,6 +1,6 @@
 import { Page } from "puppeteer";
 import * as z from "zod";
-import { log } from "../services/log";
+import { log } from "../services/log/log";
 
 async function getCookies(page: Page) {
   return JSON.stringify(await page.cookies());

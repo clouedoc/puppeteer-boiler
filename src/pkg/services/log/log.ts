@@ -1,10 +1,10 @@
 import { LoggingWinston as GoogleLoggingWinston } from "@google-cloud/logging-winston";
 import chalk from "chalk";
-import delay from "delay";
 import os from "os";
 import util from "util";
 import winston from "winston";
-import env from "./env";
+import env from "../env";
+import { registerUncaughtListeners } from "./uncaught";
 
 /**
  * Simple helper for stringifying all remaining
@@ -27,6 +27,7 @@ function rest(info: any) {
   // stack-related
   delete data.hostname;
   delete data.loggerCreationDate;
+  delete data.project;
 
   if (Object.keys(data).length === 0) {
     return "";
@@ -56,7 +57,11 @@ let transports: winston.transport[] = [
 
 // send logs to GCP if we have a service account available
 if (env.GOOGLE_APPLICATION_CREDENTIALS) {
-  transports.push(new GoogleLoggingWinston());
+  transports.push(
+    new GoogleLoggingWinston({
+      level: "silly",
+    })
+  );
 }
 
 if (env.PUSHBULLET_APIKEY) {
@@ -77,19 +82,8 @@ export const log = winston.createLogger({
   defaultMeta: {
     hostname: os.hostname(),
     loggerCreationDate: new Date(),
+    project: env.PROJECT_NAME,
   },
 });
 
-// use this to report fatal errors to GCP
-process.on("uncaughtException", async (err) => {
-  /**
-   * errors in this format will be picked up by GCP's error reporting tool
-   */
-  log.error("fatal error: " + err.message, {
-    message: err.message,
-    stack: err.stack,
-  });
-
-  await delay(5000); // avoid restart-burns
-  process.exit(1);
-});
+registerUncaughtListeners();

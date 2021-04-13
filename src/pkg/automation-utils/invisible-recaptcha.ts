@@ -1,5 +1,5 @@
 import { Page } from "puppeteer";
-import { log } from "../services/log";
+import { log } from "../services/log/log";
 import { doOnAppareance } from "./appearance";
 
 /**

@@ -4,7 +4,7 @@ import RecaptchaPlugin from "puppeteer-extra-plugin-recaptcha";
 import StealthPlugin from "puppeteer-extra-plugin-stealth";
 import TimezonePlugin from "puppeteer-extra-plugin-timezone";
 import env from "../services/env";
-import { log } from "../services/log";
+import { log } from "../services/log/log";
 
 puppeteer.use(TimezonePlugin());
 
