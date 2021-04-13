@@ -31,3 +31,9 @@ export function fileExists(path: string): boolean {
     return false;
   }
 }
+
+export function random(min: number, max: number) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
