@@ -9,6 +9,7 @@ export const DefaultEnvSchema = z.object({
   // TODO: restrict to possible log levels
   LOG_LEVEL: z.string(),
   PROJECT_NAME: z.string(),
+  CHROME_PATH: z.string().optional(),
 });
 
 export const GlobalEnvSchema = DefaultEnvSchema.merge(AppEnvSchema);

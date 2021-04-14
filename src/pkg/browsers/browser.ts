@@ -8,6 +8,26 @@ import { log } from "../services/log/log";
 
 puppeteer.use(TimezonePlugin());
 
+export function getExecutablePath() {
+  if (env.CHROME_PATH) {
+    return env.CHROME_PATH;
+  }
+
+  switch (os.platform()) {
+    case "darwin":
+      return "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+    case "win32":
+      return "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
+    case "linux":
+      return "/usr/bin/google-chrome";
+    default:
+      log.warn(
+        `Couldn't find Google Chrome for the current platform. (os = ${os.platform()})`
+      );
+      return "";
+  }
+}
+
 /**
  * create a new stealth browser
  * boilerplate note: you will want to change this part
@@ -51,25 +71,10 @@ export function newBrowser(proxy?: string) {
     log.warn("created a browser without a proxy");
   }
 
-  let executablePath: string | undefined = undefined;
-  if (os.platform() === "darwin") {
-    executablePath =
-      "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
-  } else if (os.platform() === "win32") {
-    executablePath =
-      "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe";
-  } else if (os.platform() === "linux") {
-    executablePath = "/usr/bin/google-chrome";
-  } else {
-    log.warn(
-      `Couldn't find Google Chrome for the current platform. (os = ${os.platform()})`
-    );
-  }
-
   const browser = puppeteer.launch({
     args,
     headless: false,
-    executablePath,
+    executablePath: getExecutablePath(),
   });
 
   return browser;
