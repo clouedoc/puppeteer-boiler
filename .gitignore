@@ -14,6 +14,8 @@ node_modules/
 
 # Transient Data
 storage
+.session-data*
+.session-data
 
 # TypeScript
 run.js
