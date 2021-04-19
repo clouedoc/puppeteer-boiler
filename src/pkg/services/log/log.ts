@@ -1,7 +1,6 @@
 import { LoggingWinston as GoogleLoggingWinston } from "@google-cloud/logging-winston";
 import chalk from "chalk";
 import os from "os";
-import util from "util";
 import winston from "winston";
 import env from "../env";
 import { registerUncaughtListeners } from "./uncaught";
@@ -35,11 +34,11 @@ function rest(info: any) {
 
   return chalk.grey(
     // using JSON.parse to remove all the `[Symbol(...)]` things
-    `\n${util.inspect(JSON.parse(JSON.stringify(data)), false, 10, true)}`
+    `\n${JSON.stringify(data)}`
   );
 }
 
-let transports: winston.transport[] = [
+const transports: winston.transport[] = [
   new winston.transports.Console({
     format: winston.format.combine(
       winston.format.splat(),
@@ -66,7 +65,7 @@ if (env.GOOGLE_APPLICATION_CREDENTIALS) {
 
 if (env.PUSHBULLET_APIKEY) {
   transports.push(
-    // @ts-expect-error
+    // @ts-expect-error It thinks that it isn't here (because it is deprecated) while it's in actually present!
     new winston.transports.Pushbullet({
       apikey: env.PUSHBULLET_APIKEY,
       level: "warn",
