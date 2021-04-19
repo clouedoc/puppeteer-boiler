@@ -8,7 +8,7 @@ export class ProxyDropError extends Error {
   }
 }
 
-export async function catchProxyDrop(page: Page) {
+export async function catchProxyDrop(page: Page): Promise<never> {
   await (await page.target().createCDPSession()).send("Page.enable");
 
   await pEvent(page, "requestfailed", {

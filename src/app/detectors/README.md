@@ -9,7 +9,7 @@ Examples:
 - Anti-bot rate-limiting
 
 By default, failure detectors should not timeout.
-They also should never return.
+They also should never return. (To ensure that, use the `Promise<never>` return type.)
 
 To use failure detectors:
 
