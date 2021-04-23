@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Page } from "puppeteer";
 
 // STEALTH: isolated worlds

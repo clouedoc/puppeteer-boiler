@@ -9,7 +9,7 @@ import { registerUncaughtListeners } from "./uncaught";
  * Simple helper for stringifying all remaining
  * properties.
  */
-function rest(info: any) {
+function rest(info: Record<string, unknown>) {
   const data = Object.assign({}, info, {
     level: undefined,
     message: undefined,

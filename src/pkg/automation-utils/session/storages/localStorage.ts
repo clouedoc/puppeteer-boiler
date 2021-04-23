@@ -1,6 +1,6 @@
 import { Page } from "puppeteer";
 
-export async function getLocalStorage(page: Page) {
+export async function getLocalStorage(page: Page): Promise<string> {
   // STEALTH: use isolated worlds
   const localStorage = await page.evaluate(() =>
     Object.assign({}, window.localStorage)
@@ -8,7 +8,10 @@ export async function getLocalStorage(page: Page) {
   return JSON.stringify(localStorage);
 }
 
-export async function setLocalStorage(page: Page, localStorage: string) {
+export async function setLocalStorage(
+  page: Page,
+  localStorage: string
+): Promise<void> {
   // STEALTH: use isolated worlds
   await page.evaluate((localStorage: string) => {
     for (const [key, val] of Object.entries(JSON.parse(localStorage))) {

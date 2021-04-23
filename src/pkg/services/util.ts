@@ -18,7 +18,7 @@ export function throwExpression(errorMessage: string): never {
   throw new Error(errorMessage);
 }
 
-export function random(min: number, max: number) {
+export function random(min: number, max: number): number {
   min = Math.ceil(min);
   max = Math.floor(max);
   return Math.floor(Math.random() * (max - min + 1)) + min;

@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { Page } from "puppeteer";
 
 // TODO: make this TypeScript-compliant
