@@ -64,6 +64,14 @@ It is required to use puppeteer-extra plugins.
 - [ ] Add stealth utils (jitter, stealth mouse movements)
 - [ ] Add stealth measures where there are `// STEALTH` comments. These measures should be activated thanks to an env varialbe. It would add delay, so not great for development.
 
+## Troubleshooting
+
+### My project is slow to use since VSCode updated !
+
+Check VSCode's and TypeScript's issues.
+
+See: https://github.com/microsoft/TypeScript/issues/43249
+
 ## License
 
 This package is licensed under the MIT license.
