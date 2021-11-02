@@ -2,6 +2,12 @@
 
 ![cool boilerplate image](assets/images/boilerplate-readme.jpeg)
 
+## Archived
+
+This project is no longer maintained.
+Some of the code has quirks.
+Better modules will be published elsewhere.
+
 ## Introduction
 
 With NodeJS and TypeScript, you can structure your project how you want. However, this can be a bit intimidating for beginners.
