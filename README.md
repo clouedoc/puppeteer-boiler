@@ -1,12 +1,11 @@
 # puppeteer-boiler
 
-![cool boilerplate image](assets/images/boilerplate-readme.jpeg)
-
 ## Archived
 
-This project is no longer maintained.
-Some of the code has quirks.
-Better modules will be published elsewhere.
+You should migrate to my more recent template: [here](https://github.com/typescript-boilerplate).
+This repository is still a great learning resource for beginners!
+
+![cool boilerplate image](assets/images/boilerplate-readme.jpeg)
 
 ## Introduction
 
