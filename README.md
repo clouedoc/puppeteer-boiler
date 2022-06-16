@@ -2,7 +2,7 @@
 
 ## Archived
 
-You should migrate to my more recent template: [here](https://github.com/typescript-boilerplate).
+You should migrate to my more recent template: [here](https://github.com/clouedoc/typescript-boilerplate).
 This repository is still a great learning resource for beginners!
 
 ![cool boilerplate image](assets/images/boilerplate-readme.jpeg)
